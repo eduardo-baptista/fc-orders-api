@@ -13,3 +13,7 @@ migrate:
 .PHONY: migrate-down
 migrate-down:
 	migrate -path sql/migrations -database "mysql://root:root@tcp(localhost:3306)/orders" -verbose down
+
+.PHONY: generate-grpc
+generate-grpc:
+	protoc --go_out=. --go-grpc_out=. ./internal/infra/grpc/protofiles/*.proto
