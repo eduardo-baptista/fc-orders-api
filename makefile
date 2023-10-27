@@ -17,3 +17,7 @@ migrate-down:
 .PHONY: generate-grpc
 generate-grpc:
 	protoc --go_out=. --go-grpc_out=. ./internal/infra/grpc/protofiles/*.proto
+
+.PHONY: generate-graph
+generate-graph:
+	go run github.com/99designs/gqlgen generate
